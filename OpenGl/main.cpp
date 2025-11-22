@@ -8,6 +8,7 @@
 #include <math.h>
 #include <time.h>
 #include <sys/types.h>
+#include <string.h>
 
 // Vertex shader con normali
 const char* vertexShaderSource = R"(
@@ -29,6 +30,14 @@ void main() {
 }
 )";
 
+// Variabili globali
+GLFWwindow* window;
+const unsigned int SCR_WIDTH = 600;
+const unsigned int SCR_HEIGHT = 600;
+char error[100];
+FILE* fP;
+// Variabili globali
+
 int modelLoader();
 
 void worldGeneration();
@@ -47,11 +56,9 @@ void dayCicle();
 
 void timePassed();
 
-// Variabili globali
-GLFWwindow* window;
-const unsigned int SCR_WIDTH = 600;
-const unsigned int SCR_HEIGHT = 600;
-// Variabili globali
+int errorLogger(char error[100]);
+
+
 
 
 
@@ -86,6 +93,8 @@ int windowHandle() {
     window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "graphicEngine", nullptr, nullptr);
     if (!window) {
         std::cerr << "Errore creazione finestra\n";
+        char errore[100] = "Errore creazione finestra";
+        errorLogger(errore);
         glfwTerminate();
         return -1;
     }
@@ -125,6 +134,18 @@ int windowHandle() {
     }
 
     return 0;
+}
+
+int errorLogger(char error[100]) {
+    FILE* fP = NULL;
+    errno_t err = fopen_s(&fP, "errorLogger.txt", "a");
+    if (fP == 0)
+        return 0;
+    for (int i = 0;i < 100;i++) {
+        fwrite(&error[i], sizeof(char), 1, fP);
+    }
+    fprintf(fP, "\n");
+    fclose(fP);
 }
 
 
