@@ -1,0 +1,10 @@
+﻿main.obj : error LNK2019: riferimento al simbolo esterno _glfwInit non risolto nella funzione _main
+main.obj : error LNK2019: riferimento al simbolo esterno _glfwTerminate non risolto nella funzione _main
+main.obj : error LNK2019: riferimento al simbolo esterno _glfwWindowHint non risolto nella funzione _main
+main.obj : error LNK2019: riferimento al simbolo esterno _glfwCreateWindow non risolto nella funzione _main
+main.obj : error LNK2019: riferimento al simbolo esterno _glfwWindowShouldClose non risolto nella funzione _main
+main.obj : error LNK2019: riferimento al simbolo esterno _glfwPollEvents non risolto nella funzione _main
+main.obj : error LNK2019: riferimento al simbolo esterno _glfwMakeContextCurrent non risolto nella funzione _main
+main.obj : error LNK2019: riferimento al simbolo esterno _glfwSwapBuffers non risolto nella funzione _main
+C:\Users\andre\OneDrive\Desktop\OpenGl\Libraries\lib\glfw3.lib : warning LNK4272: il tipo 'x64' del computer della libreria è in conflitto con il tipo 'x86' del computer di destinazione
+C:\Users\andre\OneDrive\Desktop\OpenGl\Debug\OpenGl.exe : fatal error LNK1120: 8 esterni non risolti
