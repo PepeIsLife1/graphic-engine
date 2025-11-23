@@ -115,7 +115,7 @@ int windowHandle() {
     window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "graphicEngine", nullptr, nullptr);
     if (!window) {
         std::cerr << "Errore creazione finestra\n";
-        char errore[100] = "Errore creazione finestra";
+        char errore[MAXERROR] = "Errore creazione finestra";
         errorLogger(errore);
         glfwTerminate();
         return -1;
@@ -173,8 +173,13 @@ int errorLogger(char error[MAXERROR]) {
 int modelLoader() {
     verticesBufferFile = NULL;
     errno_t err = fopen_s(&verticesBufferFile, "verticesBufferFile.txt", "a");
-    if (verticesBufferFile == 0)
+    if (verticesBufferFile == 0) {
+        char error[MAXERROR] = "file vertici non trovato";
+        errorLogger(error);
         return 0;
+    }
+
+    
 
 }
 

@@ -1,2 +1,4 @@
 ﻿  main.cpp
+C:\Users\andre\OneDrive\Documents\GitHub\3D-Game\OpenGl\main.cpp(182,1): warning C4715: 'modelLoader': non tutti i percorsi di controllo restituiscono un valore
+C:\Users\andre\OneDrive\Documents\GitHub\3D-Game\OpenGl\main.cpp(171,1): warning C4715: 'errorLogger': non tutti i percorsi di controllo restituiscono un valore
   OpenGl.vcxproj -> C:\Users\andre\OneDrive\Documents\GitHub\3D-Game\OpenGl\x64\Debug\OpenGl.exe

@@ -24,6 +24,7 @@
     <ProjectGuid>{fda6d2b4-8e91-4c76-ac75-abb8712df5a3}</ProjectGuid>
     <RootNamespace>OpenGl</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>3D Game</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
