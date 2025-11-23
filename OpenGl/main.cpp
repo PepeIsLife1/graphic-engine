@@ -5,10 +5,18 @@
 #include "glm/gtc/type_ptr.hpp"
 #include <iostream>
 #include <sstream>
+#include <stdlib.h>
 #include <math.h>
 #include <time.h>
 #include <sys/types.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <locale.h>
+#include <direct.h>
+
+#define MAXVERICES 1024
+#define MAXERROR 100
+
 
 // Vertex shader con normali
 const char* vertexShaderSource = R"(
@@ -30,14 +38,25 @@ void main() {
 }
 )";
 
+
+
+
+
 // Variabili globali
 GLFWwindow* window;
 const unsigned int SCR_WIDTH = 600;
 const unsigned int SCR_HEIGHT = 600;
-char error[100];
-FILE* fP;
+char error[MAXERROR];
+FILE* errorFile;
+FILE* verticesBufferFile;
+float verticesBuffer[MAXVERICES];
 // Variabili globali
 
+
+
+
+
+// Dichiarazione funzioni
 int modelLoader();
 
 void worldGeneration();
@@ -56,13 +75,16 @@ void dayCicle();
 
 void timePassed();
 
-int errorLogger(char error[100]);
+int errorLogger(char error[MAXERROR]);
+
+void verticesBufferFileWriter();
+//Dichiarazione funzioni
 
 
 
 
 
-
+//Inizio codice
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     // Callback ridimensionamento oggetti
     glViewport(0, 0, width, height);
@@ -77,7 +99,7 @@ int main() {
 void gameLoop() {
 
     windowHandle();
-
+    modelLoader();
 }
 
 int windowHandle() {
@@ -136,16 +158,23 @@ int windowHandle() {
     return 0;
 }
 
-int errorLogger(char error[100]) {
-    FILE* fP = NULL;
-    errno_t err = fopen_s(&fP, "errorLogger.txt", "a");
-    if (fP == 0)
+int errorLogger(char error[MAXERROR]) {
+    errorFile = NULL;
+    errno_t err = fopen_s(&errorFile, "errorLogger.txt", "a");
+    if (errorFile == 0)
         return 0;
-    for (int i = 0;i < 100;i++) {
-        fwrite(&error[i], sizeof(char), 1, fP);
+    for (int i = 0;i < MAXERROR;i++) {
+        fwrite(&error[i], sizeof(char), 1, errorFile);
     }
-    fprintf(fP, "\n");
-    fclose(fP);
+    fprintf(errorFile, "\n");
+    fclose(errorFile);
 }
 
+int modelLoader() {
+    verticesBufferFile = NULL;
+    errno_t err = fopen_s(&verticesBufferFile, "verticesBufferFile.txt", "a");
+    if (verticesBufferFile == 0)
+        return 0;
+
+}
 
