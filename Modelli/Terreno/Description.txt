@@ -1,0 +1,6 @@
+Modelli terreno:
+
+Terra
+Pietra
+Sabbia
+Acqua
