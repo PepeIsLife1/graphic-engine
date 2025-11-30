@@ -1,3 +1,1 @@
-This game is created by Andrea Gaio and Niccolò Granchi
-
-DEVELOPING STARTED 11/22/2025
+Graphic engine in creazione per ospitare un gioco stile survival realistico a cubi
