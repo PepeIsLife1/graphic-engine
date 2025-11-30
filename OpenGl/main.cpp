@@ -13,34 +13,10 @@
 #include <sys/stat.h>
 #include <locale.h>
 #include <direct.h>
+#include "shaderClass.h"
 
 #define MAXVERICES 1024
 #define MAXERROR 100
-
-
-// Vertex shader con normali
-const char* vertexShaderSource = R"(
-#version 330 core
-layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aNormal;
-
-out vec3 FragPos;
-out vec3 Normal;
-
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
-
-void main() {
-    FragPos = vec3(model * vec4(aPos, 1.0));
-    Normal = mat3(transpose(inverse(model))) * aNormal;  
-    gl_Position = projection * view * vec4(FragPos, 1.0);
-}
-)";
-
-
-
-
 
 // Variabili globali
 GLFWwindow* window;
@@ -50,6 +26,15 @@ char error[MAXERROR];
 FILE* errorFile;
 FILE* verticesBufferFile;
 float verticesBuffer[MAXVERICES];
+GLfloat vertices[] =
+{
+    -0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Lower left corner
+    0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Lower right corner
+    0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f, // Upper corner
+    -0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inner left
+    0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inner right
+    0.0f, -0.5f * float(sqrt(3)) / 3, 0.0f // Inner down
+};
 // Variabili globali
 
 
@@ -132,12 +117,31 @@ int windowHandle() {
     int frameCount = 0;
     double previousTime = glfwGetTime();
 
+    Shader shaderProgram("default.vert", "default.frag");
+
+    GLuint VAO, VBO;
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+
     //Mentre la finestra e' aperta lui trova la larghezza e l'altezza della finestra
     //e calcola i frame per secondo bloccandosi al refresh rate del monitor
     while (!glfwWindowShouldClose(window)) {
         glfwGetFramebufferSize(window, &fbWidth, &fbHeight);
         double currentTime = glfwGetTime();
         frameCount++;
+        glClear(GL_COLOR_BUFFER_BIT);
+        shaderProgram.Activate();
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+
 
         // Aggiorna FPS ogni secondo
         if (currentTime - previousTime >= 1.0) {
@@ -148,13 +152,17 @@ int windowHandle() {
             frameCount = 0;
             previousTime = currentTime;
         }
+
+
+
+        glfwSwapBuffers(window);
         glfwPollEvents();
         glViewport(0, 0, fbWidth, fbHeight);
         glClearColor(0.2f, 0.2f, 0.5f,0.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glfwSwapBuffers(window);
     }
-
+    glfwDestroyWindow(window);
+    shaderProgram.Delete();
     return 0;
 }
 

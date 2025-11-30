@@ -7,8 +7,12 @@
       "RelativeMoniker": "D:0:0:{FDA6D2B4-8E91-4C76-AC75-ABB8712DF5A3}|OpenGl.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FDA6D2B4-8E91-4C76-AC75-ABB8712DF5A3}|OpenGl.vcxproj|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\3D-Game\\OpenGl\\config.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FDA6D2B4-8E91-4C76-AC75-ABB8712DF5A3}|OpenGl.vcxproj|solutionrelative:config.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{FDA6D2B4-8E91-4C76-AC75-ABB8712DF5A3}|OpenGl.vcxproj|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\3D-Game\\OpenGl\\shaderClass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FDA6D2B4-8E91-4C76-AC75-ABB8712DF5A3}|OpenGl.vcxproj|solutionrelative:shaderClass.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDA6D2B4-8E91-4C76-AC75-ABB8712DF5A3}|OpenGl.vcxproj|C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\3D-Game\\OpenGl\\shaderClass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FDA6D2B4-8E91-4C76-AC75-ABB8712DF5A3}|OpenGl.vcxproj|solutionrelative:shaderClass.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,19 +22,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "config.h",
-              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\3D-Game\\OpenGl\\config.h",
-              "RelativeDocumentMoniker": "config.h",
-              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\3D-Game\\OpenGl\\config.h",
-              "RelativeToolTip": "config.h",
+              "DocumentIndex": 2,
+              "Title": "shaderClass.h",
+              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\3D-Game\\OpenGl\\shaderClass.h",
+              "RelativeDocumentMoniker": "shaderClass.h",
+              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\3D-Game\\OpenGl\\shaderClass.h",
+              "RelativeToolTip": "shaderClass.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-15T19:09:03.621Z"
+              "WhenOpened": "2025-11-30T15:12:57.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "shaderClass.cpp",
+              "DocumentMoniker": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\3D-Game\\OpenGl\\shaderClass.cpp",
+              "RelativeDocumentMoniker": "shaderClass.cpp",
+              "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\3D-Game\\OpenGl\\shaderClass.cpp",
+              "RelativeToolTip": "shaderClass.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-11-30T14:43:21.144Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -40,7 +58,7 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\andre\\OneDrive\\Documents\\GitHub\\3D-Game\\OpenGl\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAABkAAAAAAAAAAAAkwLUAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAIwJQAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-15T17:59:41.267Z",
               "EditorCaption": ""
