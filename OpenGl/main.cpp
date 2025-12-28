@@ -129,22 +129,20 @@ int windowHandle() {
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-
+    int risultato = 0;
 
     //Mentre la finestra e' aperta lui trova la larghezza e l'altezza della finestra
     //e calcola i frame per secondo bloccandosi al refresh rate del monitor
     while (!glfwWindowShouldClose(window)) {
-        glfwGetFramebufferSize(window, &fbWidth, &fbHeight);
         double currentTime = glfwGetTime();
         frameCount++;
-        glClear(GL_COLOR_BUFFER_BIT);
         shaderProgram.Activate();
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
 
+        risultato = frameCount / 60;
 
         // Aggiorna FPS ogni secondo
         if (currentTime - previousTime >= 1.0) {
+            frameCount = frameCount / risultato;
             std::ostringstream title;
             title << "graphicEngine - FPS: " << frameCount
                 << " | Size: " << fbWidth << "x" << fbHeight;
@@ -152,14 +150,17 @@ int windowHandle() {
             frameCount = 0;
             previousTime = currentTime;
         }
-
+        glfwPollEvents();
+        glfwGetFramebufferSize(window, &fbWidth, &fbHeight);
+        glViewport(0, 0, fbWidth, fbHeight);
+        glClearColor(0.2f, 0.2f, 0.5f, 0.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
 
 
         glfwSwapBuffers(window);
-        glfwPollEvents();
-        glViewport(0, 0, fbWidth, fbHeight);
-        glClearColor(0.2f, 0.2f, 0.5f,0.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
     }
     glfwDestroyWindow(window);
     shaderProgram.Delete();
